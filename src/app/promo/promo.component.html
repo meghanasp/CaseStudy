@@ -1,4 +1,16 @@
 <div class="container-fluid">
+    <div class="row">
+        <div class="col bg-dark text-white">
+            <a class="navbar-brand">
+                Book E-Commerce Website
+            </a>
+        </div>
+        <div class="btn-group" role="group" >
+            <button type="button" class="btn btn-dark" (click)="changeAuthor()">Home</button>
+            <button type="button" class="btn btn-dark" routerLink="/admin">Back</button>
+            <button type="button" class="btn btn-dark" routerLink="/login">Logout</button>
+        </div>
+    </div>
 <h3 class="text-center">Add Promotion</h3>
         <form #form="ngForm" novalidate (ngSubmit)="onClick(form)" class="m-2">
      
@@ -19,11 +31,8 @@
                 
             </div>
             <div class="text-center">
-                <button class="btn btn-primary m-1" type="submit" routerLink="/admin">
+                <button class="btn btn-info m-1 btn-lg" type="submit">
                     Add
-                </button>
-                <button class="btn btn-secondary m-1" routerLink="/admin">
-                    Back
                 </button>
      
             </div>

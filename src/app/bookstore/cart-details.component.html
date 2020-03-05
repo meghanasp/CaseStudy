@@ -1,16 +1,20 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col bg-dark text-white">
-            <a href="" class="navbar-brand">
-                Book E-Commerce Website 
+            <a class="navbar-brand">
+                Book E-Commerce Website
             </a>
+        </div>
+        <div class="btn-group" role="group" >
+            <button type="button" class="btn btn-dark" routerLink="/bookstore">Home</button>
+            <button type="button" class="btn btn-dark" routerLink="/login">Logout</button>
         </div>
     </div>
     <div class="row">
         <div class="col mt-2">
             
             <h2 class="text-center">
-                Your Cart:
+                Your Cart <span class="fa fa-shopping-cart"></span>
             </h2>
             <table class="table table-bordered table-striped p-2">
                 <thead>
@@ -40,7 +44,7 @@
                         <td class="text-center">
                             <button class="btn btn-sm btn-danger"
                                     (click)="cart.removeLine(line.product.id)">
-                                    Remove
+                                    Remove <span class="fa fa-trash-o fa-lg"></span>
                             </button>
                         </td>
  
@@ -63,20 +67,16 @@
             <input class="form-control" formControlName="promocode" />
         </div> 
         <div class="col-xs-12 form-group text-right">
-          <button class="btn btn-success" type="submit">Check</button>
+          <button class="btn btn-secondary" type="submit">Check</button>
         </div>
+
     </form>
-        
-    <div class="row">
-        <div class="col">
-            <div class="text=center">
-                <button class="btn btn-primary m-1" routerLink="/bookstore">
-                Continue Shopping
-                </button>
-                <button class="btn btn-secondary m-1" routerLink="/checkout"
-                [disabled]="cart.lines.length == 0">Checkout</button>
-            </div>
-        </div>
+    <div class="text-center">
+        <button class="btn btn-info m-1" routerLink="/bookstore">
+        Continue Shopping
+        </button>
+        <button class="btn btn-secondary m-1" routerLink="/checkout"
+        [disabled]="cart.lines.length == 0">Checkout</button>
     </div>
- 
+        
 </div>

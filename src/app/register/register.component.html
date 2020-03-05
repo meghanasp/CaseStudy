@@ -1,15 +1,14 @@
-<div class="container-fluid">
-    <!-- <div *ngIf="regSent" class="m-2 text-center">
-        <h1 style="color:green"> Registration Successful</h1>
-        <button class="btn btn-primary"  routerLink="/login">
-            Login
-        </button>
-    </div> -->
+<div class="container col-md-6 col-md-offset-6 loginBox" style= "background-color:lightblue">
+    <div class="col bg-dark text-white">
+        <a class="navbar-brand">
+            Book E-Commerce Website
+        </a>
+    </div>
         <h3 class="text-center">User Registration</h3>
         <form #form="ngForm" novalidate (ngSubmit)="onClick(form)" class="m-2">
      
             <div class="form-group">
-                <label class="float-left">Username</label>
+                <label class="float-left col-md-3 col-sm-5 col-xs-1"><span class="fa fa-user"></span> Username</label>
                 <input class="form-control" #username="ngModel" name="username" [(ngModel)]="user.username" required />
                 <span *ngIf="submitted && username.invalid" class="text-danger">
                     Username is required
@@ -17,7 +16,7 @@
             </div> 
             
             <div class="form-group">
-                <label class="float-left">Password</label>
+                <label class="float-left col-md-3 col-sm-5 col-xs-1"><span class="fa fa-key"></span> Password</label>
                 <input class="form-control" type="password" minlength="6" #password="ngModel" name="password" [(ngModel)]="user.password" required />
                 <span *ngIf="submitted && password.invalid" class="text-danger">
                     Please enter your password
@@ -26,7 +25,7 @@
                 
             </div>
             <div class="form-group">
-                <label class="float-left">Email</label>
+                <label class="float-left col-md-3 col-sm-5 col-xs-1"><span class="fa fa-envelope"></span> Email</label>
                 <input class="form-control" type="email" pattern=".+@.+.com" #email="ngModel" name="email" [(ngModel)]="user.email" required />
                 <span *ngIf="submitted && email.invalid" class="text-danger">
                     Please enter your Email
@@ -34,13 +33,12 @@
                 <span *ngIf="email.hasError('pattern')" class="text-danger">Please enter a valid Email id</span>
             </div>
             <div class="text-center">
-                <button class="btn btn-primary m-1" type="submit">
+                <button class="btn btn-info m-1" type="submit">
                     Register
                 </button>
                 <button class="btn btn-secondary m-1" routerLink="/login">
                     Back
                 </button>
-     
             </div>
         </form>
     </div>

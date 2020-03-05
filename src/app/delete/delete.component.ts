@@ -26,6 +26,7 @@ export class DeleteComponent implements OnInit {
     this.AdminRepository.deleteBook(id).subscribe(book =>{
       this.submitted=false;
     });
+    alert("Book deleted successfully");
   }
 
     get books(): Book[]{
@@ -42,13 +43,13 @@ export class DeleteComponent implements OnInit {
     }
 
     get authors(): string[]{
-        this.changePage(1);
         return this.repository.getAuthors();
 
     }
 
     changeAuthor(newAuthor?: string){
         this.selectedAuthor = newAuthor;
+        this.changePage(1);
     }
 
     changePage(newPage: number) {
@@ -57,6 +58,7 @@ export class DeleteComponent implements OnInit {
 
     changePageSize(newSize: number) {
         this.booksPerPage = Number(newSize);
+        this.changePage(1);
     }
 
     get pageNumbers(): number[] {

@@ -22,8 +22,13 @@ export class InsertComponent implements OnInit {
     if(form.valid){
       this.repository.saveBook(this.book).subscribe(book =>{
         this.submitted=false;
+        alert("Book inserted successfully!");
       });
+      setTimeout(()=>{
+        window.location.href="/admin";
+      },500);
     }
+
   }
 
 }

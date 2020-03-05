@@ -1,41 +1,62 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col bg-dark text-white">
-            <a calss="navbar-brand">
-                Book E-Commerce Website
-            </a>
-            <!-- <app-cart-summary></app-cart-summary> -->
-        </div>
-        <div class="col bg-dark text-white" float="right">
-            <button routerLink="/login">
-               logout
+            <div class="col bg-dark text-white">
+                <a class="navbar-brand">
+                    Book E-Commerce Website
+                </a>
+            </div>
+            <div class="btn-group" role="group" >
+                <button type="button" class="btn btn-dark" (click)="changeAuthor()">Home</button>
+                <button type="button" class="btn btn-dark" routerLink="/admin">Back</button>
+                <button type="button" class="btn btn-dark" routerLink="/login">Logout</button>
+            </div>
+    </div>
+    <div class="row m-1">
+    <h5 class="text-dark  float-left">Authors
+    <span class="fa fa-user"></span>
+    </h5>
+    </div>
+    <div class="btn-group p-2 bg-light" role="group">
+        <button *ngFor="let auth of authors"
+                class="btn btn-info" style="border-radius: 20px;"
+                [class.active]="cat == selectedAuthor"
+                (click)="changeAuthor(auth)" >
+                    <div class="row">
+                        <div class="col">
+                            {{auth}}
+                        </div>
+                    </div>
             </button>
         </div>
-    </div>
+
+
+
     <div class="row">
-        <div class="col-3 p-2">
-            
-           <button class="btn btn-block btn-outline-primary" routerLink="/admin">
+        <!-- <div class="col-3 p-2">  
+           <button class="btn btn-block btn-outline-info" routerLink="/admin">
                 Home
             </button>
             <button *ngFor="let auth of authors"
-                class="btn btn-block btn-outline-primary"
+                class="btn btn-block btn-outline-info"
                 [class.active]="cat == selectedAuthor"
                 (click)="changeAuthor(auth)">
                          {{auth}}
             </button>
-        </div>
-        <div class="col-9 p-2">
+        </div> -->
+        <div class="col-9 p-2t">
+            <h5 class="text-dark">Books
+            <span class="fa fa-book"></span>
+            </h5>
             <div *ngFor="let book of books" class="card m-1 p-1 bg-light">
                 <h4>
                     {{book.title}}
-                    <span class="badge badge-pill badge-primary float-right">
+                    <span class="badge badge-pill badge-info float-right">
                         {{book.price | currency:"INR"}}
                     </span>
                     <span onclick="this.parentElement.style.display='none';">
-                        <button (click)="deleteBook(book.id)">Delete</button>
-
-                    </span>
+                        <button class="btn btn-sm btn-danger float-right" 
+                        (click)="deleteBook(book.id)">Delete <span class="fa fa-trash-o fa-lg"></span></button>
+                    </span>  
                 </h4>
                 <div class="card-text bg-white p-1">
                     
@@ -57,7 +78,7 @@
             <div class="btn-group float-right">
                 <button *ngFor="let page of pageNumbers" 
                 (click)="changePage(page)"
-                class="btn btn-outline-primary"
+                class="btn btn-outline-info"
                 [class.active]="page == selectedPage">
                      {{page}}
             </button>

@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
 
       setTimeout(()=>{
         window.location.href="/login";
-      },1000);
+      },500);
       
     }
   }

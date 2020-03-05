@@ -25,7 +25,11 @@ export class PromoComponent implements OnInit {
         this.promo.clear();
             this.promoSent=true;
             this.submitted=false;
+            alert("Promo added successfully!");
       });
+      setTimeout(()=>{
+        window.location.href="/admin";
+      },500);
       
     }
 

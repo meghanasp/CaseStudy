@@ -32,12 +32,13 @@ export class ViewComponent {
     }
 
     get authors(): string[]{
-        this.changePage(1);
+        
         return this.repository.getAuthors();
 
     }
 
     changeAuthor(newAuthor?: string){
+        this.changePage(1);
         this.selectedAuthor = newAuthor;
     }
 
@@ -46,6 +47,7 @@ export class ViewComponent {
     }
 
     changePageSize(newSize: number) {
+        this.changePage(1);
         this.booksPerPage = Number(newSize);
     }
 

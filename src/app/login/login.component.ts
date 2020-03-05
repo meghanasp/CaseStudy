@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   message: string;
   returnUrl: string;
+  submitted: boolean=false;
   constructor(public userservice: UserService, public appservice: AppService, private formBuilder: FormBuilder,private router: Router, public authService: AuthService) { }
   ngOnInit() {
   
@@ -33,7 +34,7 @@ export class LoginComponent implements OnInit {
   get f() { return this.loginForm.controls; }
   
   login() {
-
+    this.submitted=true;
     this.users = this.userservice.getUsers();
     // stop here if form is invalid
     if (this.loginForm.invalid) {
@@ -52,6 +53,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('isLoggedIn', "true");
         localStorage.setItem('token', this.f.username.value);
         this.router.navigate([this.returnUrl]);
+        this.submitted=false;
       }
       else if(this.f.username.value== user.username && this.f.password.value==user.password && user.isadmin=="1")
       {
@@ -59,6 +61,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('isLoggedIn', "true");
         localStorage.setItem('token', this.f.username.value);
         this.router.navigate(["/admin"]);
+        this.submitted=false;
       }
       else{
         this.message = "Please check your username and password";

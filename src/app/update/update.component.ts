@@ -15,9 +15,11 @@ export class UpdateComponent implements OnInit {
   public selectedAuthor = null;
     public booksPerPage = 3;
     public selectedPage = 1;
+    submitted: boolean = false;
+
   constructor(public repository: BooksRepository, public adminrepository: AdminRepository, private httpclient: HttpClient, public book: Book) { }
 
-  submitted: boolean = false;
+ 
   ngOnInit() {
   }
 
@@ -26,7 +28,12 @@ export class UpdateComponent implements OnInit {
     if(form.valid){
       this.adminrepository.updateBook(this.book.id, this.book).subscribe(book =>{
         this.submitted=false;
+        alert("Book updated successfully");
       });
+     
+      setTimeout(()=>{
+        window.location.href="/admin";
+      },500);
     }
   }
 
@@ -48,6 +55,7 @@ get authors(): string[]{
 
 changeAuthor(newAuthor?: string){
     this.selectedAuthor = newAuthor;
+    this.changePage(1);
 }
 
 changePage(newPage: number) {
@@ -56,6 +64,7 @@ changePage(newPage: number) {
 
 changePageSize(newSize: number) {
     this.booksPerPage = Number(newSize);
+    this.changePage(1);
 }
 
 get pageNumbers(): number[] {

@@ -1,15 +1,19 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col bg-dark text-white">
-            <a href="" class="navbar-brand">
+            <a class="navbar-brand">
                 Book E-Commerce Website
             </a>
+        </div>
+        <div class="btn-group" role="group" >
+            <button type="button" class="btn btn-dark" routerLink="/bookstore">Home</button>
+            <button type="button" class="btn btn-dark" routerLink="/login">Logout</button>
         </div>
     </div>
     <div *ngIf="orderSent" class="m-2 text-center">
         <h2>Thanks!</h2>
         <p>We'll ship your goods in 3-5 business days</p>
-        <button class="btn btn-primary" routerLink="/bookstore">
+        <button class="btn btn-info" routerLink="/bookstore">
             Return to bookstore
         </button>
     </div>
@@ -54,13 +58,13 @@
  
         </div>
         <div class="text-center">
+            <button class="btn btn-info m-1" type="submit">
+                Complete order
+            </button>   
+        <!-- </div>
+        <div class="text-center"> -->
             <button class="btn btn-secondary m-1" routerLink="/cart">
-            Back</button>
-        </div>
-        <div class="text-center">
-        <button class="btn btn-primary m-1" type="submit">
-            Complete order
-        </button>
+                Back</button>
         </div>
     </form>
     
